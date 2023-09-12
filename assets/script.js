@@ -61,16 +61,16 @@ function updateSlide() {
 function createDots() {
 	const dots = document.querySelector('.dots');
 	for (let i = 0; i < slides.length; i++) {
-		const dot = document.createElement('div');
-		if (i === 0) {
-			dot.classList.add('dot_selected');
+		const dot = document.createElement('div'); /*Pour chaque diapositive on créer un nouvel élément div*/
+		if (i === 0) { 
+			dot.classList.add('dot_selected'); /*Si l'indice i est égal à 0 alors la classe CSS dot_selected est ajoutée à l'élément <div> */
 		}
 		dot.classList.add('dot');
 		dot.addEventListener('click', function () {
-			currentSlide = i;
+			currentSlide = i;/* Lorsque l'utilisateur clique sur un point la diapo en question s'affiche */
 			updateSlide();
 		});
-		dots.appendChild(dot);
+		dots.appendChild(dot); /* l'élément div est ajouté à l'élément parent avec la classe 'dots' */
 	}
 }
 createDots();
@@ -80,10 +80,10 @@ createDots();
 
 function updateDots() {
 	const dots = document.querySelectorAll('.dot');
-	dots.forEach(function (dot) {
+	dots.forEach(function (dot) { /* Pour chaqque point on retire la classe CSS dot_selected */
 		dot.classList.remove('dot_selected');
 	});
-	dots[currentSlide].classList.add('dot_selected');
+	dots[currentSlide].classList.add('dot_selected'); /* on ajoute la classe CSS dot_selected au point qui correspond à la diapositive actuellement affichée */
 }
 
 /* Création fonction pour faire défiler les slides automatiquement */
